@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+  <meta content="text/html; charset=utf-8" http-equiv="content-type" /> 
+  <title>jQuery NaW Demo</title>
+  <link rel="stylesheet" type="text/css" href="../jquery.naw.css" />
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+  <script type="text/javascript" src="../jquery.naw.js"></script>
+  <script type="text/javascript">
+    //<![CDATA[
+    
+    // Example toolbar
+    var toolbar = {
+      "buttons" : [
+        { 
+          "label": "Bold",
+          "type": "tag",
+          "opentag": "<strong>",
+          "closetag": "</strong>"
+        },
+        { 
+          "label": "Italic",
+          "type": "tag",
+          "opentag": "<em>",
+          "closetag": "</em>"
+        },
+        { 
+          "label": "Line Break",
+          "type": "tag",
+          "opentag": "<br />"
+        },
+        { 
+          "label": "Image",
+          "type": "function",
+          "func": "getImage"
+        },
+        { 
+          "label": "Date",
+          "type": "function_noreturn",
+          "func": "putDate"
+        },
+        { 
+          "type": "break",
+        },
+        { 
+          "label": "Font Color",
+          "type": "select",
+          "func": "setFontColor",
+          "options": [
+            { "display": "Red", "value": "red" },
+            { "display": "Blue", "value": "blue" },
+            { "display": "Green", "value": "green" },
+          ],
+        },
+      ]
+    }
+
+    $(document).ready(function() {
+        $('.naw').naw({toolbar: toolbar});
+    });
+    
+    // User defined functions that are called from the NaW Toolbar buttons
+    function getImage(elm) {
+      return '<img src="'+prompt("Enter URL", "")+'" />';
+    }
+    
+    function putDate(elm) {
+      var x= new Date();
+      $.fn.naw().appendText(elm, x);
+    }
+    
+    function setFontColor(elm, val) {
+      $.fn.naw().appendText(elm, '<span style="color: '+val+';">', "</span>" );
+    }
+    //]]>
+  </script>
+</head>
+<body>
+  <h2>NaW Demo</h2>
+  <form>
+    <textarea class="naw" cols="50" rows="20"></textarea>
+  </form>
+</body>
+</html>

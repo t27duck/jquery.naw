@@ -1,0 +1,20 @@
+.naw-wrapper { clear: both; }
+.naw-wrapper .naw-toolbar {
+
+}
+.naw-wrapper .naw-toolbar .naw-toolbar-button,
+.naw-wrapper .naw-toolbar .naw-toolbar-select {
+  margin: 2px;
+  padding: 2px;
+  display: block;
+  float: left;
+  font-size: 90%;
+}
+.naw-wrapper .naw-toolbar .naw-toolbar-button {
+  background-color: #06266F;
+  text-decoration: none;
+  color: white;
+  border: #1240AB solid 1px;
+}
+.naw-wrapper .naw-toolbar .naw-toolbar-button:hover { background-color: #3914AF; }
+.naw-wrapper .naw-toolbar br { clear: both; }
